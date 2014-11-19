@@ -1,6 +1,6 @@
 
-#ifndef RFS_PROTO_9P
-#define RFS_PROTO_9P
+#ifndef RFS_9P_WIRE_H
+#define RFS_9P_WIRE_H
 
 #include "rfs/types.h"
 
