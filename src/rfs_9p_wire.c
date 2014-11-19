@@ -4,11 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-/// @todo Replace the manual math in the pack functions with standard
-/// funtions from endian.h.
-/// See https://github.com/esnet/iperf/blob/master/src/portable_endian.h for
-/// a platform-independent version of the header.
-
 static inline size_t uint8_pack(uint8_t val,
                                 unsigned char* buf,
                                 size_t bufsize) {
