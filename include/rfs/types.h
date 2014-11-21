@@ -83,5 +83,8 @@ typedef struct rfs_dirent {
   char* muid;
 } rfs_dirent_t;
 
+/// @brief The type used to represent a file descriptor in rfs.
+typedef int rfs_fd_t;
+
 #endif
 
