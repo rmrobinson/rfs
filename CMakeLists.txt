@@ -2,7 +2,7 @@ project(rfs)
 
 cmake_minimum_required(VERSION 2.8)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Werror -Wall -Wextra -g -pedantic")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu99 -Werror -Wall -Wextra -g -pedantic")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wfloat-equal -Wundef -Wshadow -Wpointer-arith")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wcast-align -Wcast-qual")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wmissing-prototypes -Wstrict-prototypes")
