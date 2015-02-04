@@ -106,7 +106,7 @@ static inline size_t uint64_unpack(const unsigned char* buf,
   return sizeof(*val);
 }
 
-static inline size_t qid_size() {
+static inline size_t qid_size(void) {
   return (sizeof(uint8_t) + sizeof(uint32_t) + sizeof(uint64_t));
 }
 
