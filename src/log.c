@@ -47,7 +47,7 @@ static const char* prefix(int priority) {
 /// @brief Generate the current timestamp in zulu time.
 /// @note This is not threadsafe.
 /// @return The formatted current time.
-static char* timestamp() {
+static char* timestamp(void) {
   time_t now;
   time(&now);
   static char buf[sizeof("2011-10-08T07:07:09Z")];

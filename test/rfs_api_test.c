@@ -3,7 +3,7 @@
 
 #include "rfs/rfs.h"
 
-int main() {
+int main(void) {
   rfs_init();
   int ret = rfs_bind("file a", "file b", 0);
   fprintf(stdout, "rfs_bind returned %d\n", ret);

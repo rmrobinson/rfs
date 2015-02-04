@@ -1,3 +1,7 @@
+#ifdef __linux__
+#define _GNU_SOURCE
+#endif
+
 #include <assert.h>
 #include <stdlib.h>
 #include <sys/queue.h>
@@ -17,8 +21,10 @@
 #include "rfs_util.h"
 
 #ifndef UNIX_PATH_MAX
- #ifdef __APPLE__
+ #if defined(__APPLE__)
 #define UNIX_PATH_MAX 104
+ #elif defined(__linux__)
+#define UNIX_PATH_MAX 108
  #endif
 #endif
 
@@ -288,10 +294,12 @@ static void rfs__client_on_connect(uv_stream_t* slistener, int status) {
   static const int so_lvl = SOL_LOCAL;
   static const int so_opt = LOCAL_PEERCRED;
   struct xucred cred;
+  uid_t* uid = &cred.cr_uid;
 #else
   static const int so_lvl = SOL_SOCKET;
   static const int so_opt = SO_PEERCRED;
   struct ucred cred;
+  uid_t* uid = &cred.uid;
 #endif
 
   socklen_t clen = sizeof(cred);
@@ -304,9 +312,9 @@ static void rfs__client_on_connect(uv_stream_t* slistener, int status) {
     return;
   }
 
-  if(cred.cr_uid != getuid()) {
+  if(*uid != getuid()) {
     fprintf(stderr, "Unauthenticated connection: our uid %d, inc uid %d\n",
-            getuid(), cred.cr_uid);
+            getuid(), *uid);
 
     rfs__client_conn_free(conn);
     return;

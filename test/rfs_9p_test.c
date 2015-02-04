@@ -78,7 +78,7 @@ static void print_msg(rfs__9p_msg_t* msg) {
   printf("-----\n\n");
 }
 
-static void test_stat() {
+static void test_stat(void) {
   printf("----- Testing stat packing and unpacking -----\n\n");
 
   rfs__9p_stat_t stat;
@@ -120,7 +120,7 @@ static void test_stat() {
   free(buf);
 }
 
-static void test_msg_version() {
+static void test_msg_version(void) {
   printf("----- Testing message version packing and unpacking -----\n\n");
 
   rfs__9p_msg_t msg;
@@ -155,7 +155,7 @@ static void test_msg_version() {
   free(buf);
 }
 
-static void test_msg_twalk() {
+static void test_msg_twalk(void) {
   printf("----- Testing message Twalk packing and unpacking -----\n\n");
 
   rfs__9p_msg_t msg;
@@ -197,7 +197,7 @@ static void test_msg_twalk() {
   free(buf);
 }
 
-static void test_msg_rwalk() {
+static void test_msg_rwalk(void) {
   printf("----- Testing message Rwalk packing and unpacking -----\n\n");
 
   rfs__9p_msg_t msg;
@@ -237,7 +237,7 @@ static void test_msg_rwalk() {
   free(buf);
 }
 
-int main() {
+int main(void) {
   test_stat();
   test_msg_version();
   test_msg_twalk();
